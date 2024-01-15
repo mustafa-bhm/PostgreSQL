@@ -74,3 +74,8 @@ test(# date_of_birth DATE NOT NULL,
 test(# email VARCHAR(150) );
 
 ```
+Insert into a table
+```console
+test=# INSERT INTO person (first_name, last_name, gender, date_of_birth)
+test-# VALUES ('Anne', 'Smith', 'FEMALE', date '1988-01-09');
+```
