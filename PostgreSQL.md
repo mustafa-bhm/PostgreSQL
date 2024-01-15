@@ -53,3 +53,24 @@ Delete/Drop a table
 ```console
 DROP TABLE <table_name>
 ```
+Create a table
+```console
+test=# CREATE TABLE person (
+test(# id INT,
+test(# first_name VARCHAR(50),
+test(# last_name VARCHAR(50),
+test(# gender VARCHAR(7),
+test(# date_of_birth DATE);
+
+```
+Create a table with Constraints 
+```console
+test=# CREATE TABLE person (
+test(# id BIGSERIAL NOT NULL PRIMARY KEY,
+test(# first_name VARCHAR(50) NOT NULL,
+test(# last_name VARCHAR(50) NOT NULL,
+test(# gender VARCHAR(50) NOT NULL,
+test(# date_of_birth DATE NOT NULL,
+test(# email VARCHAR(150) );
+
+```
