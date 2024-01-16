@@ -84,3 +84,12 @@ Inject data from sql file
 \i /Users/mac/projects/.../person.sql
 
 ```
+Order by <column_name> ASC
+```console
+SELECT * FROM person ORDER BY country_of_birth ;
+```
+
+Order by <column_name> DESC
+```console
+SELECT * FROM person ORDER BY country_of_birth DESC ;
+```
