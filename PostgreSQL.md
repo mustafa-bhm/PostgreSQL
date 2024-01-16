@@ -93,3 +93,14 @@ Order by <column_name> DESC
 ```console
 SELECT * FROM person ORDER BY country_of_birth DESC ;
 ```
+Select <column_name> and remove duplicat
+```console
+ SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth ;
+```
+
+Where Clause and AND 
+```console
+SELECT * FROM person WHERE gender = 'Female';
+
+SELECT * FROM person WHERE gender = 'Female' AND country_of_birth = 'Poland';
+```
