@@ -104,3 +104,37 @@ SELECT * FROM person WHERE gender = 'Female';
 
 SELECT * FROM person WHERE gender = 'Female' AND country_of_birth = 'Poland';
 ```
+
+Select a a limited number of rows
+```console
+SELECT * FROM person LIMIT 10;
+or 
+SELECT * FROM person FETCH FIRST 10 ROWS ONLY;
+```
+IN keyword
+```console
+SELECT * FROM person WHERE country_of_birth IN ('China', 'Brazil', 'France');
+```
+
+BETWEEN
+```console
+SELECT * FROM person
+WHERE date_of_birth 
+BETWEEN '2023-01-01' AND '2023-05-01';
+```
+
+
+Filter rows by a Pattern using LIKE and ILIKE( which is not case sensitive)
+(ex: select all rows where the email address ends with .com)
+```console
+SELECT * FROM person WHERE email LIKE '%.com';
+or 
+SELECT * FROM person WHERE country_of_birth LIKE 'P%';
+
+SELECT * FROM person WHERE country_of_birth ILIKE 'p%';
+```
+
+GROUP BY ( this will count # of persons and group them  by country_of_birth)
+```console
+ SELECT country_of_birth, COUNT(*)  FROM person GROUP BY country_of_birth;
+```
