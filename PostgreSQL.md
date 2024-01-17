@@ -138,3 +138,12 @@ GROUP BY ( this will count # of persons and group them  by country_of_birth)
 ```console
  SELECT country_of_birth, COUNT(*)  FROM person GROUP BY country_of_birth;
 ```
+
+HAVING ( in this case we selected countries that have more than 5 persons)
+```console
+test=# SELECT country_of_birth, COUNT(*)
+test-# FROM person
+test-# GROUP BY country_of_birth
+test-# HAVING COUNT(*) > 5
+test-# ORDER BY country_of_birth;
+```
