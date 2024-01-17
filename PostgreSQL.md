@@ -147,3 +147,66 @@ test-# GROUP BY country_of_birth
 test-# HAVING COUNT(*) > 5
 test-# ORDER BY country_of_birth;
 ```
+
+MIN , MAX ( Select most or less expensie car )
+```console
+SELECT MAX(price) FROM car;
+SELECT MIN(price) FROM car;
+```
+
+AVG
+```console
+SELECT AVG(price) FROM car;
+or
+SELECT ROUND(AVG(price)) FROM car;
+```
+
+Select min price for a car make and model
+```console
+test=# SELECT make, model, MIN(price) FROM car
+test-# GROUP BY make, model;
+
+  make      |          model          |   min    
+---------------+-------------------------+----------
+ Toyota        | Land Cruiser            | 20644.10
+ Mercedes-Benz | S-Class                 | 76728.03
+ BMW           | M6                      | 73400.59
+ Kia           | Amanti                  | 45082.30
+
+test=# SELECT make, MIN(price) FROM car
+GROUP BY make;
+
+ make      |   min    
+---------------+----------
+ Ford          | 10406.22
+ Smart         | 33563.75
+ Maserati      | 38278.54
+ Dodge         | 10407.30
+ Infiniti      | 16511.07
+
+
+test=# SELECT make, MIN(price) FROM car
+GROUP BY make ORDER BY MIN(price);
+  make      |   min    
+---------------+----------
+ Chevrolet     | 10160.67
+ Jaguar        | 10257.62
+ Nissan        | 10402.73
+ Ford          | 10406.22
+ Dodge         | 10407.30
+```
+
+Sum the price by make 
+```console
+SELECT make,  SUM(price) FROM car GROUP BY make;
+ make      |    sum     
+---------------+------------
+ Ford          | 4085953.12
+ Smart         |   33563.75
+ Maserati      |  187894.59
+ Dodge         | 2762150.54
+ Infiniti      |  280634.26
+ MINI          |   75463.84
+ Bentley       |  181238.44
+ 
+```
