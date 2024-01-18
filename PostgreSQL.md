@@ -310,3 +310,36 @@ SELECT NOW()::DATE;
  2024-01-18
 (1 row)
 ```
+
+Extract Year and month from Date 
+```console
+SELECT EXTRACT(YEAR FROM NOW());
+ extract 
+---------
+    2024
+(1 row)
+
+SELECT EXTRACT(MONTH FROM NOW());
+ extract 
+---------
+       1
+(1 row)
+```
+
+Age Function 
+```consoe
+ SELECT first_name, last_name, date_of_birth, AGE(NOW(), date_of_birth) AS Age FROM person;
+ first_name  |    last_name     | date_of_birth |               age               
+--------------+------------------+---------------+---------------------------------
+ Giorgi       | Jellicorse       | 2023-03-10    | 10 mons 4 days 14:46:48.561545
+ Chaddie      | Clementet        | 2023-08-21    | 4 mons 24 days 14:46:48.561545
+ Bruce        | Stenton          | 2023-03-06    | 10 mons 8 days 14:46:48.561545
+ Susana       | Feetham          | 2023-02-14    | 11 mons 14:46:48.561545
+ Brita        | Pinckney         | 2023-10-08    | 3 mons 6 days 14:46:48.561545
+```
+
+Delete a row 
+```console
+DELETE FROM person WHERE id=1;
+DELETE 1
+```
