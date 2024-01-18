@@ -271,3 +271,42 @@ id  |     make      |          model          |  price   | discount | discounted
     3 | Hummer        | H3                      | 52793.25 |  5279.33 |        47513.93
     4 | Mitsubishi    | Montero                 | 55066.89 |  5506.69 |        49560.20
 ```
+
+
+COALESCE ( Set  default value , whne the value is null)
+```console
+SELECT email FROM person;
+email                 
+--------------------------------------
+ gjellicorse0@sohu.com
+ 
+ bstenton2@buzzfeed.com
+ sfeetham3@topsy.com
+ 
+ 
+ alevinge6@histats.com
+
+SELECT COALESCE(email,'EMAIL NOT PROVIDED' ) FROM person;
+
+ gjellicorse0@sohu.com
+ EMAIL NOT PROVIDED
+ bstenton2@buzzfeed.com
+ sfeetham3@topsy.com
+ EMAIL NOT PROVIDED
+ EMAIL NOT PROVIDED
+ alevinge6@histats.com
+```
+
+```console
+SELECT NOW();
+              now              
+-------------------------------
+ 2024-01-18 19:29:59.165116-07
+(1 row)
+
+SELECT NOW()::DATE;
+    now     
+------------
+ 2024-01-18
+(1 row)
+```
