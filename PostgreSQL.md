@@ -16,6 +16,13 @@ Connect to a specific local database named "test" (Option 2 )
  \l
  \c test --(this is the name of the database )
 ```
+
+List all Tables within a Database 
+```console
+\d
+
+```
+
 Delete a Databse 
 ```console
 DROP DATABASE test;
@@ -209,4 +216,58 @@ SELECT make,  SUM(price) FROM car GROUP BY make;
  MINI          |   75463.84
  Bentley       |  181238.44
  
+```
+
+Arithmetic Operations
+```cosnole
+test=# SELECT  10+ 2;
+ ?column? 
+----------
+       12
+(1 row)
+
+test=# SELECT 2^2;
+ ?column? 
+----------
+        4
+(1 row)
+
+test=# SELECT 10 % 3;
+ ?column? 
+----------
+        1
+(1 row)
+
+```
+Arithmetic Operators (ROUND) [Calculate discount]
+```console
+SELECT id, make, model, price, price*.10 as discount FROM car;
+
+ id  |     make      |          model          |  price   | discount  
+------+---------------+-------------------------+----------+-----------
+    1 | Ford          | Laser                   | 57789.93 | 5778.9930
+    2 | Mercedes-Benz | GL-Class                | 83726.80 | 8372.6800
+    3 | Hummer        | H3                      | 52793.25 | 5279.3250
+    4 | Mitsubishi    | Montero                 | 55066.89 | 5506.6890
+    5 | Geo           | Prizm                   | 40463.19 | 4046.3190
+
+
+SELECT id, make, model, price,ROUND(price*.10, 2) as discount FROM car;
+
+ id  |     make      |          model          |  price   | discount 
+------+---------------+-------------------------+----------+----------
+    1 | Ford          | Laser                   | 57789.93 |  5778.99
+    2 | Mercedes-Benz | GL-Class                | 83726.80 |  8372.68
+    3 | Hummer        | H3                      | 52793.25 |  5279.33
+    4 | Mitsubishi    | Montero                 | 55066.89 |  5506.69
+
+
+SELECT id, make, model, price,ROUND(price*.10, 2) as discount, 
+ROUND(price-(price*.10),2) AS Discounted_Price FROM car;
+id  |     make      |          model          |  price   | discount | discounted_price 
+------+---------------+-------------------------+----------+----------+-----------------
+    1 | Ford          | Laser                   | 57789.93 |  5778.99 |        52010.94
+    2 | Mercedes-Benz | GL-Class                | 83726.80 |  8372.68 |        75354.12
+    3 | Hummer        | H3                      | 52793.25 |  5279.33 |        47513.93
+    4 | Mitsubishi    | Montero                 | 55066.89 |  5506.69 |        49560.20
 ```
