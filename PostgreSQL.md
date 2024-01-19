@@ -19,8 +19,12 @@ Connect to a specific local database named "test" (Option 2 )
 
 List all Tables within a Database 
 ```console
-\d
-
+\dt
+ List of relations
+ Schema |  Name  | Type  | Owner 
+--------+--------+-------+-------
+ public | car    | table | mac
+ public | person | table | mac
 ```
 
 Delete a Databse 
@@ -342,4 +346,10 @@ Delete a row
 ```console
 DELETE FROM person WHERE id=1;
 DELETE 1
+```
+Update records
+```console
+UPDATE person SET email = 'susana@gmail.com' WHERE id = 4;
+
+UPDATE person SET first_name = 'omar', last_name='Smith', email ='omar@gmail.com' WHERE id ='4';
 ```
