@@ -353,3 +353,40 @@ UPDATE person SET email = 'susana@gmail.com' WHERE id = 4;
 
 UPDATE person SET first_name = 'omar', last_name='Smith', email ='omar@gmail.com' WHERE id ='4';
 ```
+
+Update Forign Key
+```console
+UPDATE person SET car_id = 1 WHERE id = 2;
+```
+
+Inner joins 
+```console
+SELECT * FROM person
+JOIN car ON person.car_id = car.id;
+
+ id | first_name | last_name | gender |      email      | date_of_birth | country_of_birth | car_id | id |    make    |  model   |  price   
+----+------------+-----------+--------+-----------------+---------------+------------------+--------+----+------------+----------+----------
+  2 | Omar       | Colmore   | Male   |                 | 1921-04-03    | Finland          |      1 |  1 | Land Rover | Sterling | 87665.38
+  1 | Fernanda   | Beardon   | Female | fernandab@is.gd | 1953-10-28    | Comoros          |      2 |  2 | GMC        | Acadia   | 17662.69
+```
+
+LEFT JOINS
+
+```console
+SELECT * FROM person
+LEFT JOIN car ON person.car_id = car.id;
+
+id | first_name | last_name | gender |        email        | date_of_birth | country_of_birth | car_id | id |    make    |  model   |  price   
+----+------------+-----------+--------+---------------------+---------------+------------------+--------+----+------------+----------+----------
+  2 | Omar       | Colmore   | Male   |                     | 1921-04-03    | Finland          |      1 |  1 | Land Rover | Sterling | 87665.38
+  1 | Fernanda   | Beardon   | Female | fernandab@is.gd     | 1953-10-28    | Comoros          |      2 |  2 | GMC        | Acadia   | 17662.69
+  3 | John       | Matuschek | Male   | john@feedburner.com | 1965-02-28    | England          |        |    |            |          |         
+(3 rows)
+
+
+```
+
+Export table as a CSV 
+```
+ \copy (SELECT *FROM person LEFT JOIN car ON car.id = person.car_id) TO '/Users/mac/../results.csv' DELIMITER ',' CSV HEADER;
+```
