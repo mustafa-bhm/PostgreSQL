@@ -222,9 +222,10 @@ SELECT make,  SUM(price) FROM car GROUP BY make;
  
 ```
 
+
 Arithmetic Operations
-```cosnole
-test=# SELECT  10+ 2;
+```console
+ SELECT  10+ 2;
  ?column? 
 ----------
        12
@@ -331,7 +332,7 @@ SELECT EXTRACT(MONTH FROM NOW());
 ```
 
 Age Function 
-```consoe
+```console
  SELECT first_name, last_name, date_of_birth, AGE(NOW(), date_of_birth) AS Age FROM person;
  first_name  |    last_name     | date_of_birth |               age               
 --------------+------------------+---------------+---------------------------------
@@ -387,6 +388,6 @@ id | first_name | last_name | gender |        email        | date_of_birth | cou
 ```
 
 Export table as a CSV 
-```
+```console
  \copy (SELECT *FROM person LEFT JOIN car ON car.id = person.car_id) TO '/Users/mac/../results.csv' DELIMITER ',' CSV HEADER;
 ```
